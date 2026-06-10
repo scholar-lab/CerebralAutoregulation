@@ -1,32 +1,3 @@
-"""
-data_logger.py
-==============
-Cerebral Autoregulation Monitor — Data Logger
-
-Writes all sensor readings and computed metrics to:
-  • A rotating CSV file (raw samples, always-on)
-  • A rotating CSV file (computed PRx / CPPopt, on each update)
-  • Optional SQLite database for structured querying
-
-Dependencies:
-    pip install numpy   (sqlite3 is stdlib)
-"""
-
-from __future__ import annotations
-
-import csv
-import logging
-import os
-import sqlite3
-import threading
-import time
-from dataclasses import asdict
-from datetime import datetime, timezone
-from pathlib import Path
-from typing import Optional
-
-logger = logging.getLogger(__name__)
-
 
 class DataLogger:
     """
